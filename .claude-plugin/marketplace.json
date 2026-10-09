@@ -1,0 +1,17 @@
+{
+  "name": "ts-lsp",
+  "owner": {
+    "name": "Nagato Yuzuru"
+  },
+  "metadata": {
+    "description": "TypeScript language server plugin for Claude Code, covering TS 6 and earlier and TS 7+"
+  },
+  "plugins": [
+    {
+      "name": "ts-lsp",
+      "description": "TypeScript/JavaScript language server that picks tsc --lsp (TS 7+) or typescript-language-server (TS 6 and earlier) per project",
+      "source": "./plugin",
+      "category": "development"
+    }
+  ]
+}

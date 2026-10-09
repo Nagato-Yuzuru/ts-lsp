@@ -1,0 +1,38 @@
+# Commit-time gate; CI runs the same hooks with `prek run --all-files`.
+# The checks themselves live in package.json (`pnpm check`) and mise.toml (jactionlint).
+
+# pnpm owns its lockfile.
+exclude = "^pnpm-lock\\.yaml$"
+
+# Whitespace and line endings for every text file; oxfmt covers the rest of formatting
+# but skips files it has no parser for (.gitignore, LICENSE).
+[[repos]]
+repo = "builtin"
+
+[[repos.hooks]]
+id = "trailing-whitespace"
+
+[[repos.hooks]]
+id = "end-of-file-fixer"
+
+[[repos.hooks]]
+id = "mixed-line-ending"
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "pnpm-check"
+name = "pnpm check (tsc, oxlint, oxfmt)"
+language = "system"
+entry = "pnpm check"
+pass_filenames = false
+always_run = true
+
+[[repos.hooks]]
+id = "jactionlint"
+name = "jactionlint"
+language = "system"
+entry = "jactionlint"
+files = "^\\.github/workflows/"
+pass_filenames = false

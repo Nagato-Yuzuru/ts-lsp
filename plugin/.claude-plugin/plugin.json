@@ -1,0 +1,26 @@
+{
+  "name": "ts-lsp",
+  "version": "0.1.0",
+  "description": "TypeScript/JavaScript language server that picks tsc --lsp (TS 7+) or typescript-language-server (TS 6 and earlier) per project",
+  "author": {
+    "name": "Nagato Yuzuru"
+  },
+  "repository": "https://github.com/Nagato-Yuzuru/ts-lsp",
+  "license": "MIT",
+  "lspServers": {
+    "typescript": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/bin/launch.ts"],
+      "extensionToLanguage": {
+        ".ts": "typescript",
+        ".tsx": "typescriptreact",
+        ".js": "javascript",
+        ".jsx": "javascriptreact",
+        ".mts": "typescript",
+        ".cts": "typescript",
+        ".mjs": "javascript",
+        ".cjs": "javascript"
+      }
+    }
+  }
+}
